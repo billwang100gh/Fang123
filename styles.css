@@ -24,3 +24,27 @@
 @media(max-width:900px){.universal-search{grid-template-columns:1fr;gap:12px}.search-results{grid-column:1}.mortgage-grid{grid-template-columns:1fr}.mortgage-calc{order:-1}.mortgage-heading{margin-bottom:17px}}
 @media(max-width:600px){.universal-search{padding:14px;margin-bottom:13px;gap:8px}.search-label p{font-size:.65rem}.universal-search form{gap:6px;padding-left:9px;min-height:44px}.universal-search input{font-size:.67rem}.universal-search form button{padding:9px;font-size:.61rem}.listing-entry{padding:15px;margin-bottom:14px}.listing-entry-top{align-items:flex-start}.listing-entry-top h2{font-size:.95rem}.listing-entry-top>a{font-size:.59rem}.search-types{margin:12px -1px 10px}.search-types button{font-size:.61rem;padding:8px 10px}.listing-search{flex-wrap:wrap;padding:8px}.listing-search input{flex-basis:100%;height:35px}.listing-search select{flex:1}.listing-search button{padding:9px;font-size:.6rem}.listing-entry>small{font-size:.54rem}.mortgage-section{padding:17px;margin:18px 0}.mortgage-heading{display:block}.mortgage-heading h2{font-size:1.08rem}.mortgage-heading p{font-size:.65rem}.snapshot-badge{display:inline-block;margin-top:10px}.mortgage-grid,.lender-rates{min-width:0;width:100%}.rate-table-wrap{max-width:100%}.mortgage-grid{gap:17px}.mortgage-calc{padding:16px}.lender-table-title{align-items:flex-start;flex-direction:column;gap:8px}.lender-table-title label{white-space:normal}.rate-table th,.rate-table td{padding:9px 8px}.rate-sources{gap:8px;font-size:.56rem}.calc-row{gap:8px}.payment-result strong{font-size:1.48rem}.font-cycle{min-width:49px;padding:6px 8px}}
 
+/* Warm brand palette: a brighter welcome while the data surfaces stay calm. */
+:root{--orange:#d6531e;--orange-dark:#a83d15;--orange-soft:#fff0e8;--coral:#e57a51;--sun:#efb548;--teal:#3c8b83}
+.masthead{background:linear-gradient(105deg,#d6531e 0%,#e26825 58%,#c74618 100%);box-shadow:0 4px 18px rgba(126,45,15,.16)}
+.brand svg{stroke:#fff}.brand b>span{color:#ffe0bd}.brand small,.brand-statement{color:#fff2e7}.brand-statement{border-left-color:rgba(255,255,255,.38)}
+.font-cycle,.language-switch{color:#fff;border-color:rgba(255,255,255,.5)}.font-cycle:hover,.language-switch:hover{background:rgba(255,255,255,.14)}
+.main-nav{border-bottom-color:#edc6b3}.nav-inner>a{color:#674a3f}.nav-inner>a.active{border-bottom-color:var(--orange);color:var(--orange-dark)}.contribute{color:var(--orange-dark)}
+.page-heading h1,.creator-heading h1{color:var(--orange)}.title-dot{color:var(--sun)}
+.tiny-line{background:var(--orange)}.pin-icon,.insight-icon,.text-link,.article-link,.listing-entry-top>a,.rate-sources a{color:var(--orange-dark)}
+.metric-card:before{background:#efd0c0}.metric-card:nth-child(1):before{background:var(--orange)}.metric-card:nth-child(2):before{background:var(--sun)}.metric-card:nth-child(3):before{background:var(--teal)}.metric-card:nth-child(4):before{background:var(--coral)}
+.direction-up{color:var(--orange-dark)}.direction-down{color:var(--teal)}
+.chart-tabs button.selected{background:var(--orange-soft);color:var(--orange-dark)}.range-tabs button.selected,.search-types button.selected{background:var(--orange);color:#fff}.key-line{border-top-color:var(--orange)}
+.chart-insight{background:#fff6ef;border-left-color:var(--orange)}.chart-insight b{color:var(--orange-dark)}
+.donut{background:conic-gradient(#d6531e 0 44%,#efb548 44% 74%,#3c8b83 74% 92%,#ead7ca 92% 100%)}
+.graphic-bars i{background:#efc078}.graphic-bars i:nth-child(2){background:#eaa05f}.graphic-bars i:nth-child(3){background:#e57a51}.graphic-bars i:nth-child(4){background:#d6531e}.graphic-bars i:nth-child(5){background:#bd4217}.graphic-bars i:nth-child(6){background:#873916}.graphic-bars i:nth-child(7){background:#3c8b83}
+.budget-art{background:linear-gradient(135deg,#fff4df,#f6dfbd)}.budget-house svg{stroke:#9b4a27}.budget-house .gold{stroke:#e09027}
+.article-art>span{background:#fff7eeee;color:#8d3d1d}.article-card:hover h3{color:var(--orange)}
+.mortgage-calc{background:#fff5ee}.payment-result{background:linear-gradient(135deg,#c94a19,#e36b2b)}
+.universal-search form:focus-within,.listing-search:focus-within{border-color:var(--orange);box-shadow:0 0 0 3px rgba(214,83,30,.11)}
+.universal-search form button,.listing-search button,.solid-button,.creator-cta{background:var(--orange)}
+.role-tabs button.selected{border-color:var(--orange);color:var(--orange-dark)}
+.takeaway{background:#fff4ec;border-left-color:var(--orange)}.takeaway>span,.article-category b{color:var(--orange-dark)}
+.cost-track i{background:var(--coral)}.cost-row:nth-of-type(2) .cost-track i{background:var(--teal)}
+button:focus-visible,a:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline-color:#f2aa67}
+
