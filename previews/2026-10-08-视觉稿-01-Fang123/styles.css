@@ -80,3 +80,12 @@ button:focus-visible,a:focus-visible,select:focus-visible,[tabindex]:focus-visib
 .main-nav.is-scrolled .nav-inner>a.active{color:#fff;border-bottom-color:#fff}
 .main-nav.is-scrolled .sticky-tools{border-color:rgba(255,255,255,.55)}
 @media(max-width:700px){.mobile-sheet-settings{display:none!important}.mobile-sheet-links{margin-bottom:0}.mobile-dock .mobile-quick{background:#fff5ee;border:1px solid #edc6b3;border-radius:8px;min-height:48px}.mobile-dock .mobile-quick.font-cycle{background:#fff5ee;color:var(--orange-dark)}}
+
+/* Keep the closed mobile overlay out of the hit-test tree. */
+.mobile-menu-backdrop[hidden]{display:none!important;pointer-events:none!important}
+.mobile-menu-backdrop{pointer-events:none}
+.mobile-menu-backdrop.open{pointer-events:auto}
+.mobile-menu-sheet{pointer-events:none}
+.mobile-menu-sheet.open{pointer-events:auto}
+.mobile-dock,.mobile-dock *{pointer-events:auto}
+
