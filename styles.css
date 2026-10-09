@@ -148,3 +148,5 @@ html[data-device-mode=phone] .mobile-dock b{font-size:.52rem}html[data-device-mo
 }
 
 @media(max-width:1100px){.mobile-dock .font-cycle.mobile-quick{position:relative;display:flex;align-items:center;justify-content:center;gap:5px;min-width:68px;min-height:44px;padding:8px 12px;border:1px solid #d5e6ea;border-radius:24px;background:#fff!important;color:#13839a!important;box-shadow:0 8px 20px rgba(34,112,128,.13);font-size:.88rem;font-weight:700}.mobile-dock .font-cycle.mobile-quick::after{content:'↕';font-size:1rem;line-height:1;font-weight:500}}
+
+@media(max-width:1100px){.mobile-dock .font-cycle.mobile-quick{min-width:48px;min-height:48px;padding:6px 8px;border:1px solid #edc6b3;border-radius:8px;background:#fff5ee!important;box-shadow:none;color:var(--orange-dark)!important;font-size:.72rem}.mobile-dock .font-cycle.mobile-quick::after{font-size:.9rem}}
