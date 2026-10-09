@@ -92,3 +92,6 @@ button:focus-visible,a:focus-visible,select:focus-visible,[tabindex]:focus-visib
 
 @media(max-width:700px){.mobile-dock{top:8px;bottom:auto;z-index:1000}.mobile-menu-sheet{top:70px;bottom:auto;max-height:calc(100vh - 90px)}}
 
+
+@media(max-width:700px){.mobile-dock{position:sticky;top:0;left:auto;right:auto;bottom:auto;margin:0 10px 18px;z-index:1000;pointer-events:auto}.back-top{z-index:1100;pointer-events:auto;touch-action:manipulation}}
+
