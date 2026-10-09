@@ -193,4 +193,7 @@ html[data-device-mode=phone] .masthead .brand-picture,html[data-device-mode=phon
 
 @media(max-width:700px){.masthead .brand{width:180px!important;max-width:180px!important}.masthead .brand-image-horizontal{width:180px!important;max-width:180px!important;height:auto!important}}
 
-@media(max-width:700px){.masthead .brand{width:145px!important;max-width:145px!important;margin-left:-8px}.masthead .brand-image-horizontal{width:145px!important;max-width:145px!important;height:auto!important}}
+@media(max-width:700px){.masthead .brand{width:145px!important;max-width:145px!important;margin-left:-20px}.masthead .brand-image-horizontal{width:145px!important;max-width:145px!important;height:auto!important}}
+
+
+.open-house-blink{display:inline-block;width:9px;height:9px;border-radius:50%;background:#c51f2f;box-shadow:0 0 0 0 rgba(197,31,47,.55);animation:openHouseBlink 1.1s ease-in-out infinite}@keyframes openHouseBlink{0%,100%{opacity:.45;box-shadow:0 0 0 0 rgba(197,31,47,.15)}50%{opacity:1;box-shadow:0 0 0 5px rgba(197,31,47,.18)}}
