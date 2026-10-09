@@ -1,6 +1,7 @@
 (() => {
   'use strict';
   const $ = (s) => document.querySelector(s);
+  if((navigator.maxTouchPoints||0)>0)document.documentElement.classList.add('touch-device');
   const $$ = (s) => Array.from(document.querySelectorAll(s));
   $$('.nav-inner').forEach(nav=>{if(!nav.querySelector('.sticky-tools'))nav.insertAdjacentHTML('beforeend','<div class="sticky-tools" aria-label="阅读设置"><button class="font-cycle" aria-label="字号 A，点击切换到 A+1">A</button><button class="language-switch" data-language aria-label="Switch language">EN</button></div>');});
   if(!$('.mobile-dock'))document.body.insertAdjacentHTML('beforeend','<nav class="mobile-dock" aria-label="手机快捷导航"></nav>');
