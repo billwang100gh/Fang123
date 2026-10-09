@@ -190,3 +190,5 @@ html.nav-scrolled .main-nav,html.nav-restored .main-nav,html.nav-scrolled .mobil
 @media(max-width:700px){.brand-picture,.brand-picture img,.brand-picture .brand-image-horizontal{width:90px!important;max-width:90px!important;height:auto!important}.masthead-inner{min-height:72px!important}}
 
 html[data-device-mode=phone] .masthead .brand-picture,html[data-device-mode=phone] .masthead .brand-picture img,.touch-device .masthead .brand-picture,.touch-device .masthead .brand-picture img{width:90px!important;max-width:90px!important;height:auto!important}.touch-device .masthead-inner,html[data-device-mode=phone] .masthead-inner{min-height:72px!important}
+
+@media(max-width:700px){.masthead .brand{width:180px!important;max-width:180px!important}.masthead .brand-image-horizontal{width:180px!important;max-width:180px!important;height:auto!important}}
