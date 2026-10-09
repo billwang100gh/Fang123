@@ -100,3 +100,6 @@ button:focus-visible,a:focus-visible,select:focus-visible,[tabindex]:focus-visib
 .back-top small{display:block;margin-top:4px}
 @media(max-width:700px){.back-top{right:10px;bottom:10px;width:48px;height:56px}}
 
+
+@media(max-width:700px){.mobile-dock{display:grid!important;visibility:visible!important;opacity:1!important;position:sticky;top:0;left:auto;right:auto;bottom:auto;margin:0 10px 18px;min-height:60px}}
+
