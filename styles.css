@@ -188,3 +188,5 @@ html.nav-scrolled .main-nav,html.nav-restored .main-nav,html.nav-scrolled .mobil
 .brand-picture{display:block;line-height:0}.brand-picture .brand-image-horizontal{display:block;width:min(330px,32vw);height:auto;object-fit:contain;object-position:left center}@media(max-width:700px){.brand-picture .brand-image-horizontal{width:min(170px,42vw)}.brand-picture{max-width:170px}}
 
 @media(max-width:700px){.brand-picture,.brand-picture img,.brand-picture .brand-image-horizontal{width:90px!important;max-width:90px!important;height:auto!important}.masthead-inner{min-height:72px!important}}
+
+html[data-device-mode=phone] .masthead .brand-picture,html[data-device-mode=phone] .masthead .brand-picture img,.touch-device .masthead .brand-picture,.touch-device .masthead .brand-picture img{width:90px!important;max-width:90px!important;height:auto!important}.touch-device .masthead-inner,html[data-device-mode=phone] .masthead-inner{min-height:72px!important}
