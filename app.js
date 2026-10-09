@@ -19,7 +19,7 @@
     document.documentElement.style.setProperty('--font-scale', relativeScale);
     document.documentElement.style.fontSize = `${118 * relativeScale}%`;
     const label = fontLabel(font);
-    $$('.font-cycle').forEach(button=>{button.textContent=font===0?'A':label;button.classList.toggle('font-default',font===0);button.setAttribute('aria-label',`字号 ${label}，点击切换到 ${fontLabel(nextFont())}`);});
+    $$('.font-cycle').forEach(button=>{button.innerHTML=font===0?'A <span class="font-arrow" aria-hidden="true">↕</span>':label;button.classList.toggle('font-default',font===0);button.setAttribute('aria-label',`字号 ${label}，点击切换到 ${fontLabel(nextFont())}`);});
   }
   applyFont();
   document.addEventListener('click',e=>{if(e.target.closest('.font-cycle')){font=nextFont();store.set(fontPreferenceKey,String(font));applyFont();}});const deviceModes=['desktop','tablet','phone'];let deviceMode='desktop';document.documentElement.dataset.deviceMode=deviceMode;document.addEventListener('click',e=>{if(e.target.closest('.device-cycle')){deviceMode=deviceModes[(deviceModes.indexOf(deviceMode)+1)%deviceModes.length];document.documentElement.dataset.deviceMode=deviceMode;e.target.closest('.device-cycle').setAttribute('aria-label','当前显示：'+deviceMode);}});
