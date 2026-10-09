@@ -178,3 +178,7 @@ html.nav-scrolled .main-nav,html.nav-restored .main-nav{background:var(--orange)
 /* Long demo pages use readable full-width cards for scroll testing. */
 .demo-long-list{grid-template-columns:1fr!important}.demo-long-list .article-card{min-width:0}
 
+
+/* Compact landlord navigation uses a dark brown background. */
+html.nav-scrolled .main-nav,html.nav-restored .main-nav,html.nav-scrolled .mobile-dock,html.nav-restored .mobile-dock{background:var(--orange)!important;border-color:var(--orange-dark)!important}
+
