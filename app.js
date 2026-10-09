@@ -26,7 +26,7 @@
   const langKey='fang123-demo-language-v4';let language=store.get(langKey)||'en';
   const languagePairs={
     '市场总览':'Market overview','历史趋势':'Trends','利率观察':'Rates','观点与指南':'Insights','作者 / 经纪人入口':'Contributor workspace',
-    '看清当下，读懂趋势':'See today clearly. Understand the trends.','从房价到居住成本，把与你有关的市场变化放在一起。':'Housing prices and living costs, in one clear market view.',
+    '看清当下，读懂大势':'See today clearly. Understand the big picture.','从房价到居住成本，把与你有关的市场变化放在一起。':'Housing prices and living costs, in one clear market view.',
     '大多伦多地区':'Greater Toronto Area','地区':'Region','房屋类型':'Property type','全部住宅':'All homes','独立屋':'Detached','公寓':'Condo','联排别墅':'Townhouse',
     '市场的变化，放长一点看':'A longer view of the market','历史趋势':'Historical trends','基准房价':'Benchmark price','成交量':'Sales','在售房源':'Active listings','平均在市天数':'Days on market',
     '本地经纪人分享的精选房源':'Local agent listings','列表':'List','地图':'Map','经纪人投稿':'Agent submissions','市场之外，也是生活':'Perspectives and practical guides',
