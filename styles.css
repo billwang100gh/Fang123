@@ -91,6 +91,10 @@ button:focus-visible,a:focus-visible,select:focus-visible,[tabindex]:focus-visib
 .font-arrow{display:inline-block;margin-left:4px;font-size:.9em;line-height:1;font-weight:500}
 .font-cycle:not(.font-default)::after{content:none!important}
 .mobile-dock .font-cycle.mobile-quick:not(.font-default)::after{content:none!important}
+.nav-scrolled .mobile-dock{background:var(--orange)!important;border-color:var(--orange-dark);box-shadow:0 8px 28px rgba(76,46,31,.3)}
+.nav-scrolled .mobile-dock a,.nav-scrolled .mobile-dock .mobile-more{color:#fff}
+.nav-scrolled .mobile-dock a.active,.nav-scrolled .mobile-dock .mobile-more.active,.nav-scrolled .mobile-dock .mobile-more[aria-expanded="true"]{background:var(--orange-dark);color:#fff}
+.nav-scrolled .mobile-dock .mobile-quick{background:#fff5ee!important;color:var(--orange-dark)!important;border-color:#edc6b3}
 .mobile-menu-backdrop.open{pointer-events:auto}
 .mobile-menu-sheet{pointer-events:none}
 .mobile-menu-sheet.open{pointer-events:auto}

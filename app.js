@@ -1,5 +1,6 @@
 (() => {
   'use strict';
+  try { if (localStorage.getItem('fang123-nav-compact') === '1') document.documentElement.classList.add('nav-restored'); } catch {}
   const $ = (s) => document.querySelector(s);
   if((navigator.maxTouchPoints||0)>0)document.documentElement.classList.add('touch-device');
   const $$ = (s) => Array.from(document.querySelectorAll(s));
@@ -137,5 +138,5 @@
     const nextWidth = $('#trendChart').clientWidth;
     if (Math.abs(nextWidth - chartWidth) > 1) { chartWidth = nextWidth; renderChart(); }
   }).observe($('#trendChart'));
-const stickyNav=$(".main-nav");let lastScroll=window.scrollY;let restored=store.get('fang123-nav-compact')==='1';if(restored)document.documentElement.classList.add('nav-restored');const syncStickyNav=()=>{const y=window.scrollY;stickyNav?.classList.toggle('is-scrolled',y>12);if(document.documentElement.classList.contains('nav-restored')&&y<lastScroll&&y<=12){document.documentElement.classList.remove('nav-restored');store.set('fang123-nav-compact','0');}lastScroll=y;};$$('.main-nav a,.mobile-dock a').forEach(link=>link.addEventListener('click',()=>{if(window.scrollY>12)store.set('fang123-nav-compact','1');}));window.addEventListener('scroll',syncStickyNav,{passive:true});syncStickyNav();})();
+const stickyNav=$(".main-nav");let lastScroll=window.scrollY;let restored=store.get('fang123-nav-compact')==='1';if(restored)document.documentElement.classList.add('nav-restored');const syncStickyNav=()=>{const y=window.scrollY;const compact=y>12||document.documentElement.classList.contains('nav-restored');stickyNav?.classList.toggle('is-scrolled',compact);document.documentElement.classList.toggle('nav-scrolled',compact);if(document.documentElement.classList.contains('nav-restored')&&y<lastScroll&&y<=12){document.documentElement.classList.remove('nav-restored');document.documentElement.classList.remove('nav-scrolled');stickyNav?.classList.remove('is-scrolled');store.set('fang123-nav-compact','0');}lastScroll=y;};$$('.main-nav a,.mobile-dock a').forEach(link=>link.addEventListener('click',()=>{if(window.scrollY>12)store.set('fang123-nav-compact','1');}));window.addEventListener('scroll',syncStickyNav,{passive:true});syncStickyNav();})();
 
