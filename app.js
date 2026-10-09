@@ -3,15 +3,20 @@
   const $ = (s) => document.querySelector(s);
   const $$ = (s) => Array.from(document.querySelectorAll(s));
   const store = { get(k) { try { return localStorage.getItem(k); } catch { return null; } }, set(k,v) { try { localStorage.setItem(k,v); } catch { /* Optional local preference. */ } } };
-  let font = Math.max(-4, Math.min(4, Number(store.get('fang123-demo-font-v4')) || 0));
+  const fontOrder = [0, 1, 2, 3, 4, -1, -2, -3, -4];
+  const fontPreferenceKey = 'fang123-demo-font-v5';
+  const savedFont = store.get(fontPreferenceKey);
+  let font = savedFont === null ? 3 : Math.max(-4, Math.min(4, Number(savedFont) || 0));
+  const fontLabel = (level) => level === 0 ? 'A' : `A${level > 0 ? '+' : '−'}${Math.abs(level)}`;
+  const nextFont = () => fontOrder[(fontOrder.indexOf(font) + 1) % fontOrder.length];
   function applyFont() {
     document.documentElement.style.setProperty('--font-scale', 1 + font * .06);
     document.documentElement.style.fontSize = `${100 + font * 6}%`;
-    const label = font === 0 ? 'A' : `A${font > 0 ? '+' : '−'}${Math.abs(font)}`;
-    if ($('#fontLevel')) { $('#fontLevel').textContent = font === 0 ? 'A ↕' : label; $('#fontLevel').setAttribute('aria-label', `字号 ${label}，点击切换到 ${font === 4 ? 'A−1' : font === -4 ? 'A' : font === 0 ? 'A+1' : `A${font > 0 ? '+' : '−'}${Math.abs(font) + 1}`}`); }
+    const label = fontLabel(font);
+    if ($('#fontLevel')) { $('#fontLevel').textContent = font === 0 ? 'A ↕' : label; $('#fontLevel').setAttribute('aria-label', `字号 ${label}，点击切换到 ${fontLabel(nextFont())}`); }
   }
   applyFont();
-  $('#fontLevel')?.addEventListener('click',() => { font = font === 4 ? -1 : font + 1; store.set('fang123-demo-font-v4',String(font)); applyFont(); });
+  $('#fontLevel')?.addEventListener('click',() => { font = nextFont(); store.set(fontPreferenceKey,String(font)); applyFont(); });
   const langKey='fang123-demo-language-v4';let language=store.get(langKey)||'en';
   const languagePairs={
     '市场总览':'Market overview','历史趋势':'Trends','利率观察':'Rates','观点与指南':'Insights','作者 / 经纪人入口':'Contributor workspace',
