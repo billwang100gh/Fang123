@@ -10,17 +10,19 @@
   if(!$('#mobileMenuSheet'))document.body.insertAdjacentHTML('beforeend','<section class="mobile-menu-sheet" id="mobileMenuSheet" aria-label="完整网站菜单" aria-hidden="true"><div class="mobile-sheet-head"><b data-zh="浏览全部栏目" data-en="Browse all sections">浏览全部栏目</b><button class="mobile-sheet-close" type="button" aria-label="关闭菜单">×</button></div><div class="mobile-sheet-links"><a href="mortgage.html"><span>%</span><b data-zh="按揭" data-en="Mortgage">按揭</b></a><a href="rentals.html"><span>▤</span><b data-zh="租赁" data-en="Rentals">租赁</b></a><a href="maintenance.html"><span>⌂</span><b data-zh="维护" data-en="Maintenance">维护</b></a><a href="landlord.html"><span>▣</span><b data-zh="房东" data-en="Landlord">房东</b></a><a href="insights.html"><span>✦</span><b data-zh="洞见" data-en="Insights">洞见</b></a><a href="creator.html"><span>＋</span><b data-zh="投稿入口" data-en="Contribute">投稿入口</b></a></div></section>');
   const store = { get(k) { try { return localStorage.getItem(k); } catch { return null; } }, set(k,v) { try { localStorage.setItem(k,v); } catch { /* Optional local preference. */ } } };
   const fontOrder = [0, 1, 2, 3, 4, -1, -2, -3, -4];
-  const fontPreferenceKey = 'fang123-demo-font-v6';
+  const fontPreferenceKey = 'fang123-demo-font-v7';
   const savedFont = store.get(fontPreferenceKey);
-  let font = savedFont === null ? 0 : Math.max(-4, Math.min(4, Number(savedFont) || 0));
-  const fontLabel = (level) => level === 0 ? 'A' : `A${level > 0 ? '+' : '−'}${Math.abs(level)}`;
+  const mobileFontBase = window.matchMedia('(max-width: 700px)').matches ? 3 : 0;
+  let font = savedFont === null ? mobileFontBase : Math.max(-4, Math.min(4, Number(savedFont) || 0));
+  const fontLabel = (level) => { const displayLevel = mobileFontBase === 3 ? level - 3 : level; return displayLevel === 0 ? 'A' : `A${displayLevel > 0 ? '+' : '−'}${Math.abs(displayLevel)}`; };
   const nextFont = () => fontOrder[(fontOrder.indexOf(font) + 1) % fontOrder.length];
   function applyFont() {
     const relativeScale = 1 + font * .06;
     document.documentElement.style.setProperty('--font-scale', relativeScale);
     document.documentElement.style.fontSize = `${118 * relativeScale}%`;
     const label = fontLabel(font);
-    $$('.font-cycle').forEach(button=>{button.innerHTML=font===0?'A <span class="font-arrow" aria-hidden="true">↕</span>':label;button.classList.toggle('font-default',font===0);button.setAttribute('aria-label',`字号 ${label}，点击切换到 ${fontLabel(nextFont())}`);});
+    const isDefault = font === mobileFontBase;
+    $$('.font-cycle').forEach(button=>{button.innerHTML=isDefault?'A <span class="font-arrow" aria-hidden="true">↕</span>':label;button.classList.toggle('font-default',isDefault);button.setAttribute('aria-label',`字号 ${label}，点击切换到 ${fontLabel(nextFont())}`);});
   }
   applyFont();
   document.addEventListener('click',e=>{if(e.target.closest('.font-cycle')){font=nextFont();store.set(fontPreferenceKey,String(font));applyFont();}});const deviceModes=['desktop','tablet','phone'];let deviceMode='desktop';document.documentElement.dataset.deviceMode=deviceMode;document.addEventListener('click',e=>{if(e.target.closest('.device-cycle')){deviceMode=deviceModes[(deviceModes.indexOf(deviceMode)+1)%deviceModes.length];document.documentElement.dataset.deviceMode=deviceMode;e.target.closest('.device-cycle').setAttribute('aria-label','当前显示：'+deviceMode);}});
