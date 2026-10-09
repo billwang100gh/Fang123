@@ -84,6 +84,12 @@ button:focus-visible,a:focus-visible,select:focus-visible,[tabindex]:focus-visib
 /* Keep the closed mobile overlay out of the hit-test tree. */
 .mobile-menu-backdrop[hidden]{display:none!important;pointer-events:none!important}
 .mobile-menu-backdrop{pointer-events:none}
+
+/* Keep the compact header state when navigation happens from a scrolled page. */
+.nav-restored .demo-banner,.nav-restored .demo-strip,.nav-restored .masthead{display:none!important}
+.font-cycle.font-default::after{content:'↕';display:inline-block;margin-left:4px;font-size:.9em;line-height:1;font-weight:500}
+.font-cycle:not(.font-default)::after{content:none!important}
+.mobile-dock .font-cycle.mobile-quick:not(.font-default)::after{content:none!important}
 .mobile-menu-backdrop.open{pointer-events:auto}
 .mobile-menu-sheet{pointer-events:none}
 .mobile-menu-sheet.open{pointer-events:auto}

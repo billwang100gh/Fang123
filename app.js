@@ -19,7 +19,7 @@
     document.documentElement.style.setProperty('--font-scale', relativeScale);
     document.documentElement.style.fontSize = `${118 * relativeScale}%`;
     const label = fontLabel(font);
-    $$('.font-cycle').forEach(button=>{button.textContent=font===0?'A':label;button.setAttribute('aria-label',`字号 ${label}，点击切换到 ${fontLabel(nextFont())}`);});
+    $$('.font-cycle').forEach(button=>{button.textContent=font===0?'A':label;button.classList.toggle('font-default',font===0);button.setAttribute('aria-label',`字号 ${label}，点击切换到 ${fontLabel(nextFont())}`);});
   }
   applyFont();
   document.addEventListener('click',e=>{if(e.target.closest('.font-cycle')){font=nextFont();store.set(fontPreferenceKey,String(font));applyFont();}});const deviceModes=['desktop','tablet','phone'];let deviceMode='desktop';document.documentElement.dataset.deviceMode=deviceMode;document.addEventListener('click',e=>{if(e.target.closest('.device-cycle')){deviceMode=deviceModes[(deviceModes.indexOf(deviceMode)+1)%deviceModes.length];document.documentElement.dataset.deviceMode=deviceMode;e.target.closest('.device-cycle').setAttribute('aria-label','当前显示：'+deviceMode);}});
@@ -137,5 +137,5 @@
     const nextWidth = $('#trendChart').clientWidth;
     if (Math.abs(nextWidth - chartWidth) > 1) { chartWidth = nextWidth; renderChart(); }
   }).observe($('#trendChart'));
-const stickyNav=$(".main-nav");const syncStickyNav=()=>stickyNav?.classList.toggle("is-scrolled",window.scrollY>12);window.addEventListener("scroll",syncStickyNav,{passive:true});syncStickyNav();})();
+const stickyNav=$(".main-nav");let lastScroll=window.scrollY;let restored=store.get('fang123-nav-compact')==='1';if(restored)document.documentElement.classList.add('nav-restored');const syncStickyNav=()=>{const y=window.scrollY;stickyNav?.classList.toggle('is-scrolled',y>12);if(document.documentElement.classList.contains('nav-restored')&&y<lastScroll&&y<=12){document.documentElement.classList.remove('nav-restored');store.set('fang123-nav-compact','0');}lastScroll=y;};$$('.main-nav a,.mobile-dock a').forEach(link=>link.addEventListener('click',()=>{if(window.scrollY>12)store.set('fang123-nav-compact','1');}));window.addEventListener('scroll',syncStickyNav,{passive:true});syncStickyNav();})();
 
