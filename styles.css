@@ -174,3 +174,7 @@ html.nav-scrolled .mobile-dock .font-cycle.mobile-quick::after,html.nav-restored
 /* Inline state fallback keeps the desktop compact bar dark across page navigation. */
 html.nav-scrolled .main-nav,html.nav-restored .main-nav{background:var(--orange)!important;color:#fff!important}
 
+
+/* Long demo pages use readable full-width cards for scroll testing. */
+.demo-long-list{grid-template-columns:1fr!important}.demo-long-list .article-card{min-width:0}
+
