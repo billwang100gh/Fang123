@@ -134,3 +134,5 @@ button:focus-visible,a:focus-visible,select:focus-visible,[tabindex]:focus-visib
 .device-glyph svg .laptop,.device-glyph svg .tablet,.device-glyph svg .phone{fill:#fff;stroke:currentColor;stroke-width:2}.device-glyph svg .base{fill:#fff;stroke:currentColor;stroke-width:2}.device-glyph svg line{stroke:currentColor;stroke-width:1.7}.device-glyph svg circle{fill:currentColor}
 
 @media(min-width:701px){.device-cycle{color:#183d59!important;background:#fff!important;border-color:#c8d5de!important}.device-cycle:hover{background:#eef3f6!important}.device-glyph svg .laptop,.device-glyph svg .tablet,.device-glyph svg .phone,.device-glyph svg .base{fill:transparent!important;stroke:currentColor}.device-glyph svg circle{fill:currentColor!important}}
+
+@media(min-width:701px){.device-glyph{display:block;position:relative;width:25px;height:22px}.device-glyph i{position:absolute;display:block;border:1.7px solid currentColor;border-radius:2px;background:transparent}.device-glyph i:nth-child(1){width:8px;height:15px;left:0;top:4px}.device-glyph i:nth-child(2){width:15px;height:10px;left:6px;top:8px}.device-glyph i:nth-child(3){width:20px;height:14px;left:4px;top:1px}}
