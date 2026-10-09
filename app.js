@@ -22,7 +22,7 @@
     $$('.font-cycle').forEach(button=>{button.textContent=font===0?'A':label;button.setAttribute('aria-label',`字号 ${label}，点击切换到 ${fontLabel(nextFont())}`);});
   }
   applyFont();
-  document.addEventListener('click',e=>{if(e.target.closest('.font-cycle')){font=nextFont();store.set(fontPreferenceKey,String(font));applyFont();}});const deviceModes=['desktop','tablet','phone'];let deviceMode=store.get('fang123-device-mode')||'desktop';document.documentElement.dataset.deviceMode=deviceMode;document.addEventListener('click',e=>{if(e.target.closest('.device-cycle')){deviceMode=deviceModes[(deviceModes.indexOf(deviceMode)+1)%deviceModes.length];document.documentElement.dataset.deviceMode=deviceMode;store.set('fang123-device-mode',deviceMode);e.target.closest('.device-cycle').setAttribute('aria-label',当前显示：);}});
+  document.addEventListener('click',e=>{if(e.target.closest('.font-cycle')){font=nextFont();store.set(fontPreferenceKey,String(font));applyFont();}});const deviceModes=['desktop','tablet','phone'];let deviceMode=store.get('fang123-device-mode')||'desktop';document.documentElement.dataset.deviceMode=deviceMode;document.addEventListener('click',e=>{if(e.target.closest('.device-cycle')){deviceMode=deviceModes[(deviceModes.indexOf(deviceMode)+1)%deviceModes.length];document.documentElement.dataset.deviceMode=deviceMode;store.set('fang123-device-mode',deviceMode);e.target.closest('.device-cycle').setAttribute('aria-label','当前显示：'+deviceMode);}});
   const langKey='fang123-demo-language-v4';let language=store.get(langKey)||'en';
   const languagePairs={
     '市场总览':'Market overview','历史趋势':'Trends','利率观察':'Rates','观点与指南':'Insights','作者 / 经纪人入口':'Contributor workspace',
