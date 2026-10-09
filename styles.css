@@ -170,3 +170,7 @@ html.nav-scrolled .main-nav .nav-inner>a.active,html.nav-restored .main-nav .nav
 html.nav-scrolled .main-nav .sticky-tools,html.nav-restored .main-nav .sticky-tools{border-color:rgba(255,255,255,.55)!important}
 html.nav-scrolled .mobile-dock .font-cycle.mobile-quick::after,html.nav-restored .mobile-dock .font-cycle.mobile-quick::after{content:none!important}
 
+
+/* Inline state fallback keeps the desktop compact bar dark across page navigation. */
+html.nav-scrolled .main-nav,html.nav-restored .main-nav{background:var(--orange)!important;color:#fff!important}
+
