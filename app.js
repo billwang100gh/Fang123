@@ -15,7 +15,7 @@
   const mobileFontBase = window.matchMedia('(max-width: 700px)').matches ? 3 : 0;
   let font = savedFont === null ? mobileFontBase : Math.max(-4, Math.min(4, Number(savedFont) || 0));
   const fontLabel = (level) => { const displayLevel = mobileFontBase === 3 ? level - 3 : level; return displayLevel === 0 ? 'A' : `A${displayLevel > 0 ? '+' : '−'}${Math.abs(displayLevel)}`; };
-  const nextFont = () => fontOrder[(fontOrder.indexOf(font) + 1) % fontOrder.length];
+  const nextFont = () => { const order = mobileFontBase === 3 ? [4,5,6,7,3,2,1,0,-1] : fontOrder; return order[(order.indexOf(font) + 1) % order.length]; };
   function applyFont() {
     const relativeScale = 1 + font * .06;
     document.documentElement.style.setProperty('--font-scale', relativeScale);
