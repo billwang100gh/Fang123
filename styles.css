@@ -109,3 +109,6 @@ button:focus-visible,a:focus-visible,select:focus-visible,[tabindex]:focus-visib
 
 .touch-device .mobile-dock{display:grid!important;position:sticky;top:0;z-index:1000;visibility:visible!important;opacity:1!important}.touch-device .main-nav{display:none!important}
 
+
+@media(max-width:1100px){.mobile-dock{position:sticky!important;top:0!important;bottom:auto!important;left:auto!important;right:auto!important;width:calc(100% - 20px);margin:0 10px 18px;align-self:flex-start;z-index:1000}}
+
