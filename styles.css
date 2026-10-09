@@ -132,3 +132,5 @@ button:focus-visible,a:focus-visible,select:focus-visible,[tabindex]:focus-visib
 .device-glyph svg{display:block;width:26px;height:26px;overflow:visible;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linejoin:round}.device-glyph svg circle{fill:currentColor;stroke:none}.device-glyph svg .screen{fill:currentColor;stroke:currentColor}.device-glyph svg .screen+circle,.device-glyph svg .screen~circle{fill:#fff}.device-glyph svg .tablet,.device-glyph svg .phone{fill:#fff}
 
 .device-glyph svg .laptop,.device-glyph svg .tablet,.device-glyph svg .phone{fill:#fff;stroke:currentColor;stroke-width:2}.device-glyph svg .base{fill:#fff;stroke:currentColor;stroke-width:2}.device-glyph svg line{stroke:currentColor;stroke-width:1.7}.device-glyph svg circle{fill:currentColor}
+
+@media(min-width:701px){.device-cycle{color:#183d59!important;background:#fff!important;border-color:#c8d5de!important}.device-cycle:hover{background:#eef3f6!important}.device-glyph svg .laptop,.device-glyph svg .tablet,.device-glyph svg .phone,.device-glyph svg .base{fill:transparent!important;stroke:currentColor}.device-glyph svg circle{fill:currentColor!important}}
