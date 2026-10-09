@@ -4,14 +4,15 @@
   const $$ = (s) => Array.from(document.querySelectorAll(s));
   const store = { get(k) { try { return localStorage.getItem(k); } catch { return null; } }, set(k,v) { try { localStorage.setItem(k,v); } catch { /* Optional local preference. */ } } };
   const fontOrder = [0, 1, 2, 3, 4, -1, -2, -3, -4];
-  const fontPreferenceKey = 'fang123-demo-font-v5';
+  const fontPreferenceKey = 'fang123-demo-font-v6';
   const savedFont = store.get(fontPreferenceKey);
-  let font = savedFont === null ? 3 : Math.max(-4, Math.min(4, Number(savedFont) || 0));
+  let font = savedFont === null ? 0 : Math.max(-4, Math.min(4, Number(savedFont) || 0));
   const fontLabel = (level) => level === 0 ? 'A' : `A${level > 0 ? '+' : '−'}${Math.abs(level)}`;
   const nextFont = () => fontOrder[(fontOrder.indexOf(font) + 1) % fontOrder.length];
   function applyFont() {
-    document.documentElement.style.setProperty('--font-scale', 1 + font * .06);
-    document.documentElement.style.fontSize = `${100 + font * 6}%`;
+    const relativeScale = 1 + font * .06;
+    document.documentElement.style.setProperty('--font-scale', relativeScale);
+    document.documentElement.style.fontSize = `${118 * relativeScale}%`;
     const label = fontLabel(font);
     if ($('#fontLevel')) { $('#fontLevel').textContent = font === 0 ? 'A ↕' : label; $('#fontLevel').setAttribute('aria-label', `字号 ${label}，点击切换到 ${fontLabel(nextFont())}`); }
   }
