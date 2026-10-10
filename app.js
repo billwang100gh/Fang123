@@ -17,14 +17,16 @@
   let font = isMobileDevice ? mobileFontBase : (savedFont === null ? 0 : Math.max(-4, Math.min(4, Number(savedFont) || 0)));
   const fontLabel = (level) => { const displayLevel = mobileFontBase === 3 ? level - 3 : level; return displayLevel === 0 ? 'A' : `A${displayLevel > 0 ? '+' : '−'}${Math.abs(displayLevel)}`; };
   let mobileCycleIndex = 0;
-  const nextFont = () => { const order = mobileFontBase === 3 ? [3,4,5,6,7,6,5,4,3,2,1,0,-1,0,1,2,3] : [0,1,2,3,4,3,2,1,0,-1,-2,-3,-4,-3,-2,-1,0]; mobileCycleIndex=(mobileCycleIndex+1)%order.length; return order[mobileCycleIndex]; };
+  const fontCycle = mobileFontBase === 3 ? [3,4,5,6,7,6,5,4,3,2,1,0,-1,0,1,2,3] : [0,1,2,3,4,3,2,1,0,-1,-2,-3,-4,-3,-2,-1,0];
+  const nextFont = () => { mobileCycleIndex=(mobileCycleIndex+1)%fontCycle.length; return fontCycle[mobileCycleIndex]; };
+  const peekNextFont = () => fontCycle[(mobileCycleIndex+1)%fontCycle.length];
   function applyFont() {
     const relativeScale = 1 + font * .06;
     document.documentElement.style.setProperty('--font-scale', relativeScale);
     document.documentElement.style.fontSize = `${118 * relativeScale}%`;
     const label = fontLabel(font);
     const isDefault = font === mobileFontBase;
-    $$('.font-cycle').forEach(button=>{button.innerHTML=isDefault?'A <span class="font-arrow" aria-hidden="true">↕</span>':label;button.classList.toggle('font-default',isDefault);button.setAttribute('aria-label',`字号 ${label}，点击切换到 ${fontLabel(nextFont())}`);});
+    $$('.font-cycle').forEach(button=>{button.innerHTML=isDefault?'A <span class="font-arrow" aria-hidden="true">↕</span>':label;button.classList.toggle('font-default',isDefault);button.setAttribute('aria-label',`字号 ${label}，点击切换到 ${fontLabel(peekNextFont())}`);});
   }
   applyFont();
   document.addEventListener('click',e=>{if(e.target.closest('.font-cycle')){font=nextFont();store.set(fontPreferenceKey,String(font));applyFont();}});const deviceModes=['desktop','tablet','phone'];let deviceMode='desktop';document.documentElement.dataset.deviceMode=deviceMode;document.addEventListener('click',e=>{if(e.target.closest('.device-cycle')){deviceMode=deviceModes[(deviceModes.indexOf(deviceMode)+1)%deviceModes.length];document.documentElement.dataset.deviceMode=deviceMode;e.target.closest('.device-cycle').setAttribute('aria-label','当前显示：'+deviceMode);}});
