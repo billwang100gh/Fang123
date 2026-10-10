@@ -17,7 +17,7 @@
   let font = isMobileDevice ? mobileFontBase : (savedFont === null ? 0 : Math.max(-4, Math.min(4, Number(savedFont) || 0)));
   const fontLabel = (level) => { const displayLevel = mobileFontBase === 3 ? level - 3 : level; return displayLevel === 0 ? 'A' : `A${displayLevel > 0 ? '+' : '−'}${Math.abs(displayLevel)}`; };
   let mobileCycleIndex = 0;
-  const nextFont = () => { if(mobileFontBase === 3){ const order=[3,4,5,6,7,3,2,1,0,-1]; mobileCycleIndex=(mobileCycleIndex+1)%order.length; return order[mobileCycleIndex]; } const index=fontOrder.indexOf(font); return fontOrder[(index<0?0:index+1)%fontOrder.length]; };
+  const nextFont = () => { const order = mobileFontBase === 3 ? [3,4,5,6,7,6,5,4,3,2,1,0,-1,0,1,2,3] : [0,1,2,3,4,3,2,1,0,-1,-2,-3,-4,-3,-2,-1,0]; mobileCycleIndex=(mobileCycleIndex+1)%order.length; return order[mobileCycleIndex]; };
   function applyFont() {
     const relativeScale = 1 + font * .06;
     document.documentElement.style.setProperty('--font-scale', relativeScale);
